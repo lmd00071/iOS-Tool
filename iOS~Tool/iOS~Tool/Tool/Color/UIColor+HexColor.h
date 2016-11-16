@@ -13,4 +13,7 @@
 // 根据16进制颜色值返回Color
 +(UIColor *)colorWithHexString:(NSString *)stringToConvert;
 
++(NSArray *)RgbWithHexString:(NSString *)stringToConvert;
+
+
 @end

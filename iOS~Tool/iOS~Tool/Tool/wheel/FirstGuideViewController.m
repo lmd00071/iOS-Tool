@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (!_imageList) {
-        _imageList = @[@"9",@"10",@"11",@"12"];
+        _imageList = @[@"1",@"2",@"3",@"4"];
     }
     [self setUpUI];
     [self setUpData];
@@ -83,7 +83,7 @@
 
 -(void)setUpData
 {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirstComoin"];
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirstComoin"];
     for (int i = 0; i<self.imageList.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*kScreenWidth, 0, kScreenWidth, kScreenHeight)];
         NSString *imageName = [NSString stringWithFormat:@"%@",_imageList[i]];
@@ -94,9 +94,21 @@
 
 -(void)clickBtnToStart:(UIButton*)sender
 {
-    UIViewController *vc = [[NSClassFromString(self.controllerName) alloc] init];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstComoin"]) {
+        UIViewController *vc = [[NSClassFromString(self.controllerName) alloc] init];
+        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc];
+        
+        [UIApplication sharedApplication].keyWindow.rootViewController = navi;
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirstComoin"];
+        
+    }
+    else{
+       
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
     
-    [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+   
     
 }
 
