@@ -11,6 +11,8 @@
 #import "ColorViewController.h"
 #import "AdverViewController.h"
 #import "FirstGuideViewController.h"
+#import "AdvertiseView.h"
+
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -33,6 +35,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.view.backgroundColor = [UIColor blueColor];
+    
+//    AdvertiseView *view = [[AdvertiseView alloc]initWithFrame:self.view.bounds];
+//    [self.view addSubview:view];
     
     self.listArray = @[@"声音播放",@"十六进制颜色",@"启动轮播图",@"启动广告"];
     

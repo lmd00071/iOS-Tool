@@ -1,5 +1,5 @@
 //
-//  AdvertiseView.m
+//  LmdImageTool.m
 //  XiuChe
 //
 //  Created by 李明丹 on 16/8/8.
@@ -36,6 +36,7 @@ static int const showtime = 3;
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor redColor];
         
         // 1.广告图片
         _adView = [[UIImageView alloc] initWithFrame:frame];
@@ -68,6 +69,11 @@ static int const showtime = 3;
     _filePath = filePath;
     _adView.image = [UIImage imageWithContentsOfFile:filePath];
 //    _adView.image = [UIImage imageNamed:@"nocontent"];
+}
+
+-(void)setLocalImage:(NSString *)localImage
+{
+    _adView.image = [UIImage imageNamed:localImage];
 }
 
 - (void)pushToAd{

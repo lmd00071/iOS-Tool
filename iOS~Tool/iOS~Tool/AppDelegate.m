@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "FirstGuideViewController.h"
 #import "MainViewController.h"
+#import "AdImageTool.h"
+#import "AdvertiseView.h"
 
 @interface AppDelegate ()
 
@@ -33,6 +35,21 @@
     else
     {
         self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[MainViewController alloc]init]];
+        // 判断沙盒中是否存在广告图片，如果存在，直接显示
+        NSString *filePath = [AdImageTool getFilePathWithImageName:[kUserDefaults valueForKey:adImageName]];
+        BOOL isExist = [AdImageTool isFileExistWithFilePath:filePath];
+        AdvertiseView *advertiseView = [[AdvertiseView alloc] initWithFrame:self.window.bounds];
+        if (isExist) {// 图片存在
+            
+            advertiseView.filePath = filePath;
+            [advertiseView show];
+        }
+        else{
+            advertiseView.localImage = @"4";   //本地图片
+            [advertiseView show];
+
+        }
+
         
     }
     

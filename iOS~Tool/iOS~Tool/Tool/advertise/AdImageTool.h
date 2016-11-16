@@ -1,5 +1,5 @@
 //
-//  AdImageTool.h
+//  LmdImageTool.h
 //  XiuChe
 //
 //  Created by 李明丹 on 16/8/8.

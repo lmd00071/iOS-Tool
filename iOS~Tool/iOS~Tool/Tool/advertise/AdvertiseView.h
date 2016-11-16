@@ -1,5 +1,5 @@
 //
-//  AdvertiseView.h
+//  LmdImageTool.h
 //  XiuChe
 //
 //  Created by 李明丹 on 16/8/8.
@@ -19,6 +19,9 @@ static NSString *const adUrl = @"adUrl";
 
 /** 图片路径*/
 @property (nonatomic, copy) NSString *filePath;
+
+
+@property (nonatomic, copy) NSString *localImage;
 
 
 
